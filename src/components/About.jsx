@@ -28,8 +28,9 @@ function About() {
             <p className="text-base sm:text-lg leading-relaxed">
               I'm a Computer Science student at RIT Chennai, passionate about full stack development,
               artificial intelligence, and machine learning. I specialize in building user-friendly applications
-              using technologies like <strong>Flutter</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>,
-              and <strong>React</strong>, and handling databases like <strong>PostgreSQL</strong> and <strong>MongoDB</strong>.
+              using technologies like <strong>Flutter</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>, 
+
+              <strong>React and Vue</strong>, and handling databases like <strong>MySQL</strong>, <strong>PostgreSQL</strong> and <strong>MongoDB</strong>.
               <br /><br />
               My goal is to create impactful solutions that enhance user experiences and drive innovation.
             </p>
