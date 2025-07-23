@@ -5,28 +5,27 @@ function About() {
   return (
     <motion.section
       id="about"
-      className="py-20 bg-white"
+      className="py-12 sm:py-20 bg-white"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
+      <div className="max-w-full sm:max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">About Me</h2>
 
-        <div className="flex flex-col md:flex-row items-center gap-10">
+        <div className="flex flex-col items-center gap-6 sm:gap-10">
           {/* Profile Image */}
-          <div className="w-full md:w-1/3 flex justify-center">
+          <div className="w-full flex justify-center">
             <img
-              src={profileImg}// Correct image path (starting from public folder)
-              
-               className="w-80 h-80 object-cover rounded-full shadow-lg border-4 border-gray-200"
+              src={profileImg}
+              className="w-48 h-48 sm:w-80 sm:h-80 object-cover rounded-full shadow-lg border-4 border-gray-200"
             />
           </div>
 
           {/* Text Content */}
-          <div className="w-full md:w-2/3 text-center md:text-left">
-            <p className="text-lg leading-relaxed">
+          <div className="w-full text-center">
+            <p className="text-base sm:text-lg leading-relaxed">
               I'm a Computer Science student at RIT Chennai, passionate about full stack development,
               artificial intelligence, and machine learning. I specialize in building user-friendly applications
               using technologies like <strong>Flutter</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>,
