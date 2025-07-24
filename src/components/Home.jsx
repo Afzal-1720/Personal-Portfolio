@@ -20,7 +20,7 @@ function Home() {
         </motion.h2>
         <p className="text-xl sm:text-2xl mb-6">Full Stack Developer</p>
         <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Full Stack Developer and Software Developer skilled in Java, Spring Boot, RESTful API development, and microservices-based backend systems. Experienced in Flutter, React and Vue.js for frontend integration with strong UI-API connectivity. Proficient in PostgreSQL, MySQL, MongoDB, Git, and Docker. Strong foundation in data structures and algorithms.
+          Full Stack Developer and Software Developer skilled in Java Spring Boot, RESTful API development, and microservices-based backend systems. Experienced in Flutter, React and Vue.js for frontend integration with strong UI-API connectivity. Proficient in PostgreSQL, MySQL, MongoDB, Git, and Docker. Strong foundation in data structures and algorithms.
         </p>
         <motion.a
           href="#contact"
