@@ -212,52 +212,58 @@ function About() {
 
         {/* Timeline Section */}
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto px-4"
           variants={itemVariants}
         >
-          <h3 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-white">
             My Journey
           </h3>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+            {/* Timeline Line - Mobile: Left side, Desktop: Center */}
+            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
 
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                className={`relative mb-8 sm:mb-12 ${
+                  // Mobile: All items aligned left, Desktop: Alternating
+                  'md:flex md:items-center ' + (index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')
                 }`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                {/* Mobile Layout: Single column with left padding */}
+                <div className={`
+                  pl-12 md:pl-0
+                  md:w-1/2
+                  ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}
+                `}>
                   <motion.div
-                    className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700"
+                    className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-lg border border-gray-200 dark:border-gray-700"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <CalendarIcon className="w-5 h-5 text-blue-500" />
-                      <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                      <CalendarIcon className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                      <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm sm:text-base">
                         {item.year}
                       </span>
                     </div>
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">
                       {item.description}
                     </p>
                   </motion.div>
                 </div>
 
-                {/* Timeline Dot */}
+                {/* Timeline Dot - Mobile: Left side, Desktop: Center */}
                 <motion.div
-                  className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"
+                  className="absolute left-3 md:left-1/2 md:transform md:-translate-x-1/2 top-6 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-2 sm:border-4 border-white dark:border-gray-900 shadow-lg"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
