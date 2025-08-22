@@ -112,22 +112,22 @@ function About() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           variants={itemVariants}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
           {/* Profile Section */}
           <motion.div
             className="text-center lg:text-left"
             variants={itemVariants}
           >
-            <div className="relative inline-block mb-8">
+            <div className="relative inline-block mb-6 sm:mb-8">
               <motion.div
                 className="relative"
                 whileHover={{ scale: 1.05 }}
@@ -136,7 +136,7 @@ function About() {
                 <img
                   src={profileImg}
                   alt="Muhammad Afzal.F"
-                  className="w-64 h-64 sm:w-80 sm:h-80 object-cover object-center rounded-2xl shadow-2xl border-4 border-white dark:border-gray-700"
+                  className="w-48 h-48 xs:w-56 xs:h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 object-cover object-center rounded-2xl shadow-2xl border-4 border-white dark:border-gray-700"
                   style={{
                     imageRendering: 'crisp-edges',
                     WebkitImageRendering: 'crisp-edges',
@@ -150,34 +150,34 @@ function About() {
 
               {/* Floating Badge */}
               <motion.div
-                className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-full p-4 shadow-lg border-4 border-blue-500"
+                className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-white dark:bg-gray-800 rounded-full p-2 sm:p-4 shadow-lg border-2 sm:border-4 border-blue-500"
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <UserIcon className="w-8 h-8 text-blue-500" />
+                <UserIcon className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-blue-500" />
               </motion.div>
             </div>
 
             <motion.div
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6 px-4 sm:px-0"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                 Muhammad Afzal.F
               </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 I'm a passionate Computer Science student at RIT Chennai, dedicated to crafting
                 innovative solutions through code. My journey spans full-stack development,
                 artificial intelligence, and machine learning, with a focus on creating
                 applications that make a real difference.
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 I specialize in modern technologies like <span className="text-blue-600 dark:text-blue-400 font-semibold">Spring Boot</span>,
                 <span className="text-green-600 dark:text-green-400 font-semibold"> React</span>,
                 <span className="text-purple-600 dark:text-purple-400 font-semibold"> Vue.js</span>, and
                 <span className="text-cyan-600 dark:text-cyan-400 font-semibold"> Flutter</span>,
-                 <span className="text-orange-600 dark:text-orange-400 font-semibold"> Flask and Node.js </span>
+                <span className="text-orange-600 dark:text-orange-400 font-semibold"> Flask and Node.js </span>
                 building scalable solutions with robust database architectures.
               </p>
             </motion.div>
@@ -185,7 +185,7 @@ function About() {
 
           {/* Highlights Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             variants={itemVariants}
           >
             {highlights.map((highlight, index) => (

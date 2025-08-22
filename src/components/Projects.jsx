@@ -84,28 +84,28 @@ function Projects() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           variants={itemVariants}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6 sm:mb-8"></div>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
             Explore my latest work showcasing modern web development, mobile applications, and innovative solutions.
           </p>
         </motion.div>
 
         {/* Filter Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-4"
           variants={itemVariants}
         >
           {filters.map((tech) => (
             <motion.button
               key={tech}
               onClick={() => setFilter(tech)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
                 filter === tech
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
                   : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
@@ -122,7 +122,7 @@ function Projects() {
         <AnimatePresence mode="wait">
           <motion.div
             key={filter}
-            className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -179,8 +179,8 @@ function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
                     {project.title}
                   </h3>
 
@@ -189,26 +189,26 @@ function Projects() {
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
                     {project.tech.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className={`px-3 py-1 rounded-full text-xs font-medium ${getTechColor(tech)}`}
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getTechColor(tech)}`}
                       >
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 3 && (
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+                      <span className="px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400">
                         +{project.tech.length - 3} more
                       </span>
                     )}
                   </div>
 
                   {/* Click to view indicator */}
-                  <div className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium">
+                  <div className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm sm:text-base font-medium">
                     Click to view on GitHub
-                    <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                    <ArrowTopRightOnSquareIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                   </div>
                 </div>
 

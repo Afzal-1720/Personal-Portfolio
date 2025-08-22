@@ -100,14 +100,14 @@ function Contact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
           variants={itemVariants}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
             Get In Touch
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6 sm:mb-8"></div>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
             Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
           </p>
         </motion.div>
@@ -129,27 +129,27 @@ function Contact() {
 
           {/* Contact Methods */}
           <motion.div
-            className="grid md:grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12"
             variants={itemVariants}
           >
             {contactMethods.map((method, index) => (
               <motion.a
                 key={index}
                 href={method.link}
-                className="group flex flex-col items-center text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md"
+                className="group flex flex-col items-center text-center p-4 sm:p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md"
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`p-4 rounded-full bg-gradient-to-r ${method.color} text-white group-hover:scale-110 transition-transform duration-300 mb-4`}>
+                <div className={`p-3 sm:p-4 rounded-full bg-gradient-to-r ${method.color} text-white group-hover:scale-110 transition-transform duration-300 mb-3 sm:mb-4`}>
                   {method.icon}
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-2">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-2">
                   {method.type}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-2">
                   {method.description}
                 </p>
-                <p className="text-gray-800 dark:text-gray-200 font-medium">
+                <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base font-medium break-words">
                   {method.value}
                 </p>
               </motion.a>
@@ -161,17 +161,17 @@ function Contact() {
             className="text-center"
             variants={itemVariants}
           >
-            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+            <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
               Follow Me
             </h4>
-            <div className="flex justify-center gap-6">
+            <div className="flex justify-center gap-3 sm:gap-4 lg:gap-6">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-4 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg`}
+                  className={`p-3 sm:p-4 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg`}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   title={social.name}
