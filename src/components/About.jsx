@@ -81,15 +81,15 @@ function About() {
     {
       year: "2023-2024",
       title: "Backend Specialization",
-      description: "Deep dive into Spring Boot, APIs, and database design"
+      description: "Deep dive into Spring Boot, Node.js, Flask, FastAPI, Restful APIs, and database design"
     },
     {
-      year: "2022-2023",
+      year: "2023-2024",
       title: "Frontend & Mobile Development",
       description: "Building responsive web apps and mobile applications"
     },
     {
-      year: "2021-2022",
+      year: "2022-2023",
       title: "Programming Foundations",
       description: "Started journey with Java, Python, and web technologies"
     }

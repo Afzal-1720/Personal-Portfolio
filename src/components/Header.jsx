@@ -9,6 +9,26 @@ function Header() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleMobileNavClick = (sectionId) => {
+    // Close the menu first
+    setIsMenuOpen(false);
+
+    // Add a small delay to ensure menu closes, then scroll
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerOffset = 100; // Account for fixed header height
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100); // Small delay to allow menu to close
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
@@ -18,6 +38,30 @@ function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('header')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen]);
 
   const navItems = ['Home', 'About', 'Projects', 'Skills', 'Contact'];
 
@@ -47,9 +91,20 @@ function Header() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
-            <motion.a
+            <motion.button
               key={item}
-              href={`#${item.toLowerCase()}`}
+              onClick={() => {
+                const element = document.getElementById(item.toLowerCase());
+                if (element) {
+                  const headerOffset = 100;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className="relative text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,7 +118,7 @@ function Header() {
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.a>
+            </motion.button>
           ))}
           <ThemeToggle />
         </div>
@@ -91,7 +146,7 @@ function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-dark-900/95 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20"
+            className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-dark-900/95 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 shadow-lg z-40"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -99,18 +154,18 @@ function Header() {
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item, index) => (
-                <motion.a
+                <motion.button
                   key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium py-2"
+                  className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium py-3 px-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleMobileNavClick(item.toLowerCase())}
                   whileHover={{ x: 10 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {item}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </motion.div>
