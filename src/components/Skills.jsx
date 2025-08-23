@@ -54,26 +54,26 @@ function Skills() {
       icon: <CodeBracketIcon className="w-6 h-6" />,
       color: "from-blue-500 to-cyan-500",
       skills: [
-        { name: "Java", level: 90 },
-        { name: "Python", level: 85 },
-        { name: "JavaScript", level: 88 },
+        { name: "Java", level: 95 },
+        { name: "Python", level: 90 },
+        { name: "JavaScript", level: 90 },
         { name: "C", level: 75 },
         { name: "PHP", level: 70 },
-        { name: "HTML/CSS", level: 92 }
+        { name: "HTML/CSS", level: 95 }
       ]
     },
     "Frameworks": {
       icon: <CpuChipIcon className="w-6 h-6" />,
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "Spring Boot", level: 88 },
+        { name: "Spring Boot", level: 95 },
         { name: "React.js", level: 90 },
-        { name: "Vue.js", level: 85 },
-        { name: "Flutter", level: 82 },
-        { name: "FastAPI", level: 80 },
+        { name: "Vue.js", level: 90 },
+        { name: "Flutter", level: 90 },
+        { name: "FastAPI", level: 85 },
         { name: "Tailwind CSS", level: 95 },
-         { name: "Flask", level: 80 },
-          { name: "Node.js", level: 80 }
+         { name: "Flask", level: 85 },
+          { name: "Node.js", level: 85 }
       ]
     },
     "Databases": {
@@ -82,7 +82,7 @@ function Skills() {
       skills: [
         { name: "PostgreSQL", level: 95 },
         { name: "MySQL", level: 95 },
-        { name: "MongoDB", level: 80 }
+        { name: "MongoDB", level: 85 }
       ]
     },
     "Technologies": {
@@ -90,11 +90,11 @@ function Skills() {
       color: "from-orange-500 to-red-500",
       skills: [
         { name: "Git/GitHub", level: 90 },
-        { name: "Docker", level: 75 },
-        { name: "RESTful APIs", level: 92 },
+        { name: "Docker", level: 85 },
+        { name: "RESTful APIs", level: 95 },
         { name: "VS Code", level: 95 },
-        { name: "PowerBI", level: 70 },
-         { name: "CI/CD Pipelines and GitLab", level: 80 }
+        { name: "PowerBI", level: 75 },
+         { name: "CI/CD Pipelines and GitLab", level: 85 }
       ]
     }
   };
@@ -229,8 +229,8 @@ function Skills() {
             {[
              
               { label: "Projects Completed", value: "15+", icon: <CpuChipIcon className="w-8 h-8" /> },
-              { label: "Technologies Mastered", value: "7+", icon: <WrenchScrewdriverIcon className="w-8 h-8" /> },
-              { label: "Frameworks Used", value: "7+", icon: <GlobeAltIcon className="w-8 h-8" /> }
+              { label: "Technologies Mastered", value: "8+", icon: <WrenchScrewdriverIcon className="w-8 h-8" /> },
+              { label: "Frameworks Mastered", value: "8+", icon: <GlobeAltIcon className="w-8 h-8" /> }
             ].map((stat, index) => (
               <motion.div
                 key={index}
