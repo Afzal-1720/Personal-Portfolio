@@ -7,7 +7,13 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    console.log('Toggle menu clicked, current state:', isMenuOpen);
+    setIsMenuOpen(prev => {
+      console.log('Setting menu to:', !prev);
+      return !prev;
+    });
+  };
 
   const handleMobileNavClick = (sectionId) => {
     // Close the menu first
@@ -39,17 +45,26 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('header')) {
-        setIsMenuOpen(false);
-      }
-    };
+  // Close mobile menu when clicking outside (disabled for testing)
+  // useEffect(() => {
+  //   if (!isMenuOpen) return;
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMenuOpen]);
+  //   const handleClickOutside = (event) => {
+  //     const header = document.querySelector('header');
+  //     if (header && !header.contains(event.target)) {
+  //       setIsMenuOpen(false);
+  //     }
+  //   };
+
+  //   const timeoutId = setTimeout(() => {
+  //     document.addEventListener('click', handleClickOutside);
+  //   }, 150);
+
+  //   return () => {
+  //     clearTimeout(timeoutId);
+  //     document.removeEventListener('click', handleClickOutside);
+  //   };
+  // }, [isMenuOpen]);
 
   // Close mobile menu on escape key
   useEffect(() => {
@@ -128,10 +143,11 @@ function Header() {
           <ThemeToggle />
           <motion.button
             onClick={toggleMenu}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 z-50"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
               <XMarkIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
